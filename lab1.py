@@ -23,10 +23,10 @@ def reverse_rec(int_list):   # must use recursion
 
 
 def bin_search(target, low, high, int_list):  # must use recursion
-    if low < 0 or high >= len(int_list): #Error if low or high are not compatible
-        raise IndexError
     if int_list is None: #Error if list is none
         raise ValueError
+    elif low < 0 or high >= len(int_list): #Error if low or high are not compatible
+        raise IndexError
     elif (high == low and int_list[low] != target) or len(int_list) == 0 or low > high or high < low: #Base case if len of sublist is 0 and target not found
         return None
     elif int_list[(high + low) // 2] == target: #Return if the last number is the target

@@ -24,9 +24,12 @@ class TestLab1(unittest.TestCase):
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
-        self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4) #checks for functionality
+        self.assertEqual(bin_search(4, 0, len(list_val) - 1, list_val), 4) #checks for basic functionality
+        self.assertEqual(bin_search(7, 0, len(list_val) - 1, list_val), 5)  # checks for functionality of the binary "split"
         self.assertEqual(bin_search(4, 0, 2, [1,2,3,4,5,6]), None) #checks for target not in list range case and end bound
         self.assertEqual(bin_search(1, 1, 2, [1, 2, 3, 4, 5, 6]), None)  # checks for target not in list range case and beginning bound
+        with self.assertRaises(ValueError):  # used to check for exception
+            bin_search(3, 1, 3, None)
 
 
 if __name__ == "__main__":
